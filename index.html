@@ -167,6 +167,11 @@
       z-index: 101;
       position: relative;
       line-height: 1.4;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .promo-banner.promo-hidden {
+      transform: translateY(-100%);
+      opacity: 0;
     }
 
     /* ── NAV ── */
@@ -298,12 +303,14 @@
       font-size: 13px;
       font-weight: 400;
       letter-spacing: 1px;
-      border-bottom: 1px solid rgba(255,255,255,0.5);
-      padding-bottom: 2px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 10px 24px;
+      border-radius: 24px;
       transition: all 0.3s;
       -webkit-tap-highlight-color: transparent;
     }
-    .btn-text-link:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    .btn-text-link:hover { color: var(--gold-light); border-color: var(--gold-light); background: rgba(255,255,255,0.18); }
     .btn-gold {
       background: var(--gold);
       color: var(--charcoal);
@@ -436,7 +443,7 @@
     /* ── COLLECTIONS (IMAGE GRID) ── */
     .collections {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
     .collection-card {
@@ -492,8 +499,63 @@
     }
     .gallery-item:hover img { transform: scale(1.05); }
 
+    /* ── GALLERY MORE BUTTON ── */
+    .gallery-more {
+      text-align: center;
+      margin-top: 24px;
+      display: none;
+    }
+    .btn-gallery-more {
+      background: transparent;
+      color: var(--charcoal);
+      padding: 14px 40px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 1px solid rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: all 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-gallery-more:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── INLINE CTA ── */
+    .inline-cta {
+      background: var(--charcoal);
+      color: var(--white);
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .inline-cta p {
+      font-size: 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .inline-cta p strong { color: var(--gold-light); }
+    .inline-cta-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .btn-inline-text {
+      color: rgba(255,255,255,0.7);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.3s;
+    }
+    .btn-inline-text:hover { color: var(--white); border-color: var(--white); }
+
     /* ── EXPERIENCE SECTION ── */
     .experience { background: var(--cream); }
+    .experience .btn-gold { box-shadow: 0 4px 16px rgba(184,149,106,0.3); }
     .exp-grid {
       max-width: 1400px;
       margin: 0 auto;
@@ -1005,8 +1067,10 @@
         letter-spacing: 1.5px;
         padding: 9px 16px;
       }
-      .nav { padding: 16px 20px; top: var(--promo-height); }
+      .nav { padding: 16px 20px; top: var(--promo-height); transition: all 0.4s ease, top 0.3s ease; }
       .nav.scrolled { padding: 12px 20px; top: var(--promo-height); }
+      .nav.promo-gone { top: 0; }
+      .nav.scrolled.promo-gone { top: 0; }
       .nav-logo { font-size: 22px; }
       .nav-phone { display: none; }
       .nav-cta { padding: 10px 20px; font-size: 10px; letter-spacing: 1.5px; }
@@ -1028,13 +1092,16 @@
       .urgency-note { margin-top: -40px; margin-bottom: 40px; font-size: 13px; }
 
       .section-header { margin-bottom: 48px; }
-      .collections { grid-template-columns: 1fr; gap: 16px; }
-      .collection-card { aspect-ratio: 16/10; }
+      .collections { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .collection-card { aspect-ratio: 3/4; }
       .collection-overlay { padding: 24px; }
       .collection-overlay h3 { font-size: 24px; }
 
       .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .gallery-item { aspect-ratio: 4/3; }
+      .gallery-item:nth-child(n+7) { display: none; }
+      .gallery-item.gallery-show-all { display: block; }
+      .gallery-more { display: block; }
 
       .exp-grid { grid-template-columns: 1fr; gap: 32px; }
       .exp-image { aspect-ratio: 4/3; }
@@ -1057,7 +1124,8 @@
 
       .visit-grid { grid-template-columns: 1fr; gap: 40px; }
       .visit-info h2 { font-size: 28px; }
-      .form-card { padding: 28px 20px; }
+      .form-card { padding: 28px 20px; padding-bottom: 100px; }
+      .inline-cta-buttons { flex-direction: column; gap: 16px; }
       .form-card h3 { font-size: 26px; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .form-submit { font-size: 11px; min-height: 52px; }
@@ -1195,6 +1263,13 @@
           <p>Tables, Chairs &amp; Sets</p>
         </div>
       </a>
+      <a class="collection-card" href="#visit" aria-label="Browse mattresses and more">
+        <img src="images/recliner-set-cream.jpg" alt="Recliner sofa set and mattresses at Metropolitan Furniture Houston" loading="lazy" decoding="async" width="800" height="1067">
+        <div class="collection-overlay">
+          <h3>Mattresses &amp; More</h3>
+          <p>Recliners, Outdoor &amp; Patio</p>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -1237,7 +1312,19 @@
         <img src="images/sectional-beige-nailhead-2.jpg" alt="Beige sectional sofa with ottoman and floral area rug" loading="lazy" decoding="async" width="600" height="800">
       </div>
     </div>
+    <div class="gallery-more reveal">
+      <button class="btn-gallery-more" id="galleryMoreBtn">View All Photos</button>
+    </div>
   </section>
+
+  <!-- INLINE CTA -->
+  <div class="inline-cta">
+    <p>Like what you see? <strong>Come see it in person.</strong></p>
+    <div class="inline-cta-buttons">
+      <a href="#visit" class="btn-gold">Visit Our Showroom</a>
+      <a href="sms:+18322795425" class="btn-inline-text">Or text us &rarr;</a>
+    </div>
+  </div>
 
   <!-- EXPERIENCE SECTION -->
   <section class="section-full experience" aria-label="The showroom experience">
@@ -1254,8 +1341,9 @@
           <li>Same-day delivery across Houston</li>
           <li>Financing up to 48 months — no credit check required</li>
           <li>Free delivery on orders over $3,000</li>
-          <li>Personalized design consultation available</li>
+          <li>Free interior design consultation</li>
           <li>Bilingual team — English &amp; Spanish</li>
+          <li>Delivery up to 100 miles &amp; nationwide shipping</li>
         </ul>
         <a href="#visit" class="btn-gold">Schedule Your Visit</a>
       </div>
@@ -1476,8 +1564,23 @@
 
     // ── Nav scroll effect ──
     var nav = document.getElementById('nav');
+    var promoBanner = document.getElementById('promoBanner');
+    var promoHidden = false;
     window.addEventListener('scroll', function() {
       nav.classList.toggle('scrolled', window.scrollY > 80);
+
+      // Hide promo banner on scroll (mobile only)
+      if (window.innerWidth < 900) {
+        if (window.scrollY > 300 && !promoHidden) {
+          promoHidden = true;
+          promoBanner.classList.add('promo-hidden');
+          nav.classList.add('promo-gone');
+        } else if (window.scrollY < 100 && promoHidden) {
+          promoHidden = false;
+          promoBanner.classList.remove('promo-hidden');
+          nav.classList.remove('promo-gone');
+        }
+      }
     }, { passive: true });
 
     // ── Reveal on scroll ──
@@ -1540,6 +1643,15 @@
     }
     updateOpenStatus();
     setInterval(updateOpenStatus, 60000); // Update every minute
+
+    // ── Gallery "View All Photos" toggle ──
+    var galleryMoreBtn = document.getElementById('galleryMoreBtn');
+    galleryMoreBtn.addEventListener('click', function() {
+      document.querySelectorAll('.gallery-item').forEach(function(item) {
+        item.classList.add('gallery-show-all');
+      });
+      galleryMoreBtn.parentElement.style.display = 'none';
+    });
 
     // ── Mobile form expand toggle ──
     var expandToggle = document.getElementById('mobileExpandToggle');
