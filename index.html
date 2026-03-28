@@ -121,13 +121,15 @@
       --charcoal: #1a1a1a;
       --dark: #2a2a2a;
       --gold: #b8956a;
+      --gold-dark: #8a6d48;
       --gold-light: #d4b896;
       --gold-soft: #f0e6d8;
       --cream: #faf7f3;
       --warm-white: #fdfcfa;
       --text: #3a3a3a;
-      --text-light: #7a7a7a;
+      --text-light: #6e6e6e;
       --white: #ffffff;
+      --promo-height: 36px;
     }
 
     html { scroll-behavior: smooth; }
@@ -151,10 +153,27 @@
 
     img { max-width: 100%; height: auto; }
 
+    /* ── PROMO BANNER ── */
+    .promo-banner {
+      background: var(--gold);
+      color: var(--charcoal);
+      text-align: center;
+      padding: 10px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 101;
+      position: relative;
+      line-height: 1.4;
+    }
+
     /* ── NAV ── */
     .nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: var(--promo-height);
+      left: 0; right: 0;
       z-index: 100;
       padding: 20px 48px;
       display: flex;
@@ -168,6 +187,7 @@
       -webkit-backdrop-filter: blur(20px);
       padding: 14px 48px;
       box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+      top: 0;
     }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
@@ -201,7 +221,7 @@
     .nav.scrolled .nav-phone { color: var(--text-light); }
     .nav-cta {
       background: var(--gold);
-      color: var(--white);
+      color: var(--charcoal);
       padding: 12px 32px;
       text-decoration: none;
       font-size: 11px;
@@ -232,7 +252,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.6) 100%);
+      background: linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.72) 100%);
     }
     .hero-content {
       position: relative;
@@ -240,6 +260,7 @@
       color: var(--white);
       max-width: 800px;
       padding: 0 24px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
     .hero-eyebrow {
       font-family: 'Inter', sans-serif;
@@ -263,15 +284,29 @@
     .hero-sub {
       font-size: 17px;
       font-weight: 300;
-      color: rgba(255,255,255,0.75);
-      max-width: 520px;
+      color: rgba(255,255,255,0.9);
+      max-width: 580px;
       margin: 0 auto 40px;
       line-height: 1.7;
     }
     .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-text-row { margin-top: 16px; display: flex; justify-content: center; }
+    .btn-text-link {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      padding-bottom: 2px;
+      transition: all 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-text-link:hover { color: var(--gold-light); border-color: var(--gold-light); }
     .btn-gold {
       background: var(--gold);
-      color: var(--white);
+      color: var(--charcoal);
       padding: 18px 48px;
       text-decoration: none;
       font-family: 'Inter', sans-serif;
@@ -294,7 +329,7 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 3px;
-      border: 1px solid rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.5);
       transition: all 0.3s;
       display: inline-block;
       -webkit-tap-highlight-color: transparent;
@@ -364,7 +399,7 @@
       font-weight: 500;
       letter-spacing: 5px;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-dark);
       margin-bottom: 16px;
       display: block;
     }
@@ -386,6 +421,17 @@
       margin-bottom: 80px;
     }
     .section-header .section-desc { margin: 0 auto; }
+
+    /* ── URGENCY NOTE ── */
+    .urgency-note {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text-light);
+      margin-top: -60px;
+      margin-bottom: 60px;
+      font-weight: 400;
+    }
 
     /* ── COLLECTIONS (IMAGE GRID) ── */
     .collections {
@@ -421,7 +467,7 @@
       margin-bottom: 4px;
     }
     .collection-overlay p {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.8);
       font-size: 13px;
       letter-spacing: 1px;
     }
@@ -598,10 +644,10 @@
     .financing-banner h2 em { font-style: italic; color: var(--gold-light); }
     .financing-banner p {
       font-size: 16px;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.65);
       max-width: 500px;
       margin: 0 auto 48px;
-      font-weight: 300;
+      font-weight: 400;
     }
     .fin-pills {
       display: flex;
@@ -618,6 +664,22 @@
       font-weight: 500;
       color: rgba(255,255,255,0.8);
       letter-spacing: 0.5px;
+    }
+
+    /* ── PAYMENT STRIP ── */
+    .payment-strip {
+      background: var(--dark);
+      padding: 20px 48px;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.5px;
+    }
+    .payment-strip strong {
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
     }
 
     /* ── VISIT / FORM SECTION ── */
@@ -678,6 +740,34 @@
       text-decoration: none;
       border-bottom: 1px solid var(--gold);
     }
+
+    /* ── OPEN NOW INDICATOR ── */
+    .open-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+    .open-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .open-dot.is-open { background: #34A853; animation: pulse-dot 2s ease infinite; }
+    .open-dot.is-closed { background: #EA4335; }
+    .open-indicator.is-open { color: #34A853; }
+    .open-indicator.is-closed { color: #EA4335; }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
     .btn-directions {
       display: inline-flex;
       align-items: center;
@@ -762,15 +852,15 @@
     .form-submit {
       width: 100%;
       background: var(--gold);
-      color: var(--white);
+      color: var(--charcoal);
       padding: 18px;
       border: none;
       border-radius: 0;
       font-family: 'Inter', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       cursor: pointer;
       transition: all 0.3s;
       margin-top: 8px;
@@ -804,15 +894,47 @@
       line-height: 1.8;
     }
     .form-success .btn-gold { margin-top: 24px; }
+    .form-success .btn-sms {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 14px 32px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+    }
+    .form-success .btn-sms:hover { background: var(--gold); }
+
+    /* ── Mobile form toggle ── */
+    .mobile-expand-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 8px 0;
+      margin-bottom: 12px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-expand-toggle:hover { color: var(--gold-light); }
+    .mobile-hideable { /* visible by default on desktop */ }
 
     /* ── FOOTER ── */
     .footer {
       background: var(--black);
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.55);
       text-align: center;
       padding: 48px;
     }
-    .footer p { font-size: 13px; font-weight: 300; }
+    .footer p { font-size: 13px; font-weight: 400; }
     .footer a { color: var(--gold-light); text-decoration: none; }
     .footer-langs {
       font-size: 12px;
@@ -821,15 +943,15 @@
       text-transform: uppercase;
     }
 
-    /* ── FLOATING CTA (MOBILE) ── */
+    /* ── FLOATING CTA (MOBILE) — 3 buttons ── */
     .float-cta {
       display: none;
       position: fixed;
       bottom: 0;
       left: 0; right: 0;
       z-index: 200;
-      padding: 12px 16px;
-      padding-bottom: max(12px, env(safe-area-inset-bottom));
+      padding: 10px 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
       background: rgba(255,255,255,0.97);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -839,26 +961,33 @@
     .float-cta.hidden { opacity: 0; transform: translateY(100%); pointer-events: none; }
     .float-cta-inner {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
     .float-cta a {
       flex: 1;
       text-align: center;
-      padding: 16px;
-      font-size: 12px;
+      padding: 14px 8px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-decoration: none;
       -webkit-tap-highlight-color: transparent;
-      min-height: 52px;
+      min-height: 48px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 2px;
+      line-height: 1.2;
+    }
+    .float-cta a .float-icon {
+      font-size: 16px;
+      line-height: 1;
     }
     .float-cta .float-primary {
       background: var(--gold);
-      color: var(--white);
+      color: var(--charcoal);
     }
     .float-cta .float-secondary {
       background: var(--charcoal);
@@ -867,8 +996,17 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .nav { padding: 16px 20px; }
-      .nav.scrolled { padding: 12px 20px; }
+      .promo-banner {
+        position: fixed;
+        top: 0;
+        left: 0; right: 0;
+        z-index: 101;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        padding: 9px 16px;
+      }
+      .nav { padding: 16px 20px; top: var(--promo-height); }
+      .nav.scrolled { padding: 12px 20px; top: var(--promo-height); }
       .nav-logo { font-size: 22px; }
       .nav-phone { display: none; }
       .nav-cta { padding: 10px 20px; font-size: 10px; letter-spacing: 1.5px; }
@@ -886,6 +1024,8 @@
       .trust-item { font-size: 10px; letter-spacing: 1.5px; flex-shrink: 0; }
 
       .section, .section-full { padding: 64px 20px; }
+
+      .urgency-note { margin-top: -40px; margin-bottom: 40px; font-size: 13px; }
 
       .section-header { margin-bottom: 48px; }
       .collections { grid-template-columns: 1fr; gap: 16px; }
@@ -913,16 +1053,23 @@
       .fin-pills { gap: 8px; }
       .fin-pill { padding: 10px 16px; font-size: 11px; }
 
+      .payment-strip { padding: 16px 20px; font-size: 12px; }
+
       .visit-grid { grid-template-columns: 1fr; gap: 40px; }
       .visit-info h2 { font-size: 28px; }
       .form-card { padding: 28px 20px; }
       .form-card h3 { font-size: 26px; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
-      .form-submit { font-size: 12px; min-height: 52px; }
+      .form-submit { font-size: 11px; min-height: 52px; }
       .btn-directions { width: 100%; justify-content: center; }
 
+      /* Mobile form: hide optional fields */
+      .mobile-hideable { display: none; }
+      .mobile-hideable.expanded { display: block; }
+      .mobile-expand-toggle { display: block; }
+
       .float-cta { display: block; }
-      body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
+      body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
 
       .footer { padding: 32px 20px 48px; }
     }
@@ -935,6 +1082,7 @@
       .section-title { font-size: 24px; }
       .exp-content h2, .visit-info h2 { font-size: 24px; }
       .financing-banner h2 { font-size: 24px; }
+      .float-cta a { font-size: 10px; padding: 12px 6px; }
     }
 
     /* ── ANIMATIONS ── */
@@ -953,11 +1101,12 @@
       .reveal { opacity: 1; transform: none; transition: none; }
       .hero-scroll::after { animation: none; }
       html { scroll-behavior: auto; }
+      .open-dot.is-open { animation: none; }
     }
 
     /* Print */
     @media print {
-      .nav, .float-cta, .hero-scroll { display: none; }
+      .nav, .float-cta, .hero-scroll, .promo-banner { display: none; }
       .hero { height: auto; min-height: auto; padding: 40px; }
       .section, .section-full { padding: 20px; }
       body { padding-bottom: 0; }
@@ -970,6 +1119,11 @@
   <!-- TODO: Add Google Ads tag here -->
 </head>
 <body>
+
+  <!-- PROMO BANNER -->
+  <div class="promo-banner" id="promoBanner" role="banner">
+    &#127873; This Month's Special: FREE Set of Pillows with Any Bedroom Set Purchase
+  </div>
 
   <!-- NAV -->
   <nav class="nav" id="nav" aria-label="Main navigation">
@@ -987,12 +1141,15 @@
   <section class="hero" aria-label="Welcome to Metropolitan Furniture">
     <div class="hero-bg" role="img" aria-label="Elegant living room furniture display"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Houston's Premier Furniture Showroom</p>
-      <h1>Furniture That Feels Like <em>Home</em></h1>
-      <p class="hero-sub">Premium quality pieces at honest prices. Walk in today — walk out with the home you've always imagined.</p>
+      <p class="hero-eyebrow">FURNITURE STORE IN HOUSTON TX</p>
+      <h1>Moving? Renovating? <em>Upgrade Your Home Today.</em></h1>
+      <p class="hero-sub">Walk into our showroom and walk out with premium furniture — same-day delivery, financing with no credit check, and prices that actually make sense.</p>
       <div class="hero-ctas">
-        <a href="#visit" class="btn-gold">Visit Our Showroom</a>
+        <a href="#" id="heroDirectionsBtn" class="btn-gold">Get Directions</a>
         <a href="tel:+18322795425" class="btn-outline">Call (832) 279-5425</a>
+      </div>
+      <div class="hero-text-row">
+        <a href="sms:+18322795425" class="btn-text-link">&#128172; Text Us</a>
       </div>
     </div>
     <a href="#collections" class="hero-scroll" aria-label="Scroll to explore">Explore</a>
@@ -1001,9 +1158,11 @@
   <!-- TRUST STRIP -->
   <div class="trust-strip" role="list" aria-label="Key benefits">
     <div class="trust-item" role="listitem"><strong>Same-Day</strong>&nbsp; Delivery</div>
-    <div class="trust-item" role="listitem"><strong>0%</strong>&nbsp; Interest Financing</div>
-    <div class="trust-item" role="listitem"><strong>No Credit</strong>&nbsp; Needed</div>
+    <div class="trust-item" role="listitem"><strong>Up to 4 Years</strong>&nbsp; &middot; 0% Interest</div>
+    <div class="trust-item" role="listitem"><strong>No Credit</strong>&nbsp; Check</div>
     <div class="trust-item" role="listitem"><strong>Hablamos</strong>&nbsp; Espa&ntilde;ol</div>
+    <div class="trust-item" role="listitem"><strong>Free Delivery</strong>&nbsp; on $3K+</div>
+    <div class="trust-item" role="listitem"><strong>Ships</strong>&nbsp; Nationwide</div>
   </div>
 
   <!-- COLLECTIONS -->
@@ -1013,23 +1172,24 @@
       <h2 class="section-title">Curated for Your Home</h2>
       <p class="section-desc">From elegant living rooms to serene bedrooms — every piece is selected for quality, comfort, and timeless style.</p>
     </div>
+    <p class="urgency-note reveal">&#128161; Everything you see is in stock and available for same-day pickup or delivery.</p>
     <div class="collections reveal">
       <a class="collection-card" href="#visit" aria-label="Browse living room furniture">
-        <img src="images/collection-living-room.jpg" alt="Sectional sofa with blue and white decorative pillows at Metropolitan Furniture Houston" loading="lazy" width="800" height="1067">
+        <img src="images/collection-living-room.jpg" alt="Sectional sofa with blue and white decorative pillows at Metropolitan Furniture Houston" loading="lazy" decoding="async" width="800" height="1067">
         <div class="collection-overlay">
           <h3>Living Room</h3>
           <p>Sofas, Sectionals &amp; More</p>
         </div>
       </a>
       <a class="collection-card" href="#visit" aria-label="Browse bedroom furniture">
-        <img src="images/collection-bedroom.jpg" alt="Dark wood bedroom set with bed dresser and nightstand at Metropolitan Furniture Houston" loading="lazy" width="800" height="1067">
+        <img src="images/collection-bedroom.jpg" alt="Dark wood bedroom set with bed dresser and nightstand at Metropolitan Furniture Houston" loading="lazy" decoding="async" width="800" height="1067">
         <div class="collection-overlay">
           <h3>Bedroom</h3>
           <p>Beds, Dressers &amp; Mattresses</p>
         </div>
       </a>
       <a class="collection-card" href="#visit" aria-label="Browse dining room furniture">
-        <img src="images/collection-dining.jpg" alt="Gray sofa and loveseat set with green accent chair and coffee table at Metropolitan Furniture Houston" loading="lazy" width="800" height="1067">
+        <img src="images/collection-dining.jpg" alt="Gray sofa and loveseat set with green accent chair and coffee table at Metropolitan Furniture Houston" loading="lazy" decoding="async" width="800" height="1067">
         <div class="collection-overlay">
           <h3>Dining Room</h3>
           <p>Tables, Chairs &amp; Sets</p>
@@ -1047,34 +1207,34 @@
     </div>
     <div class="gallery-grid reveal">
       <div class="gallery-item">
-        <img src="images/sectional-beige-nailhead.jpg" alt="Beige sectional sofa with nailhead trim and decorative pillows" loading="lazy" width="600" height="800">
+        <img src="images/sectional-beige-nailhead.jpg" alt="Beige sectional sofa with nailhead trim and decorative pillows" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/sofa-white-leather.jpg" alt="White leather modern sofa set with glass coffee table" loading="lazy" width="600" height="800">
+        <img src="images/sofa-white-leather.jpg" alt="White leather modern sofa set with glass coffee table" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/sectional-brown-recliner.jpg" alt="Brown leather reclining sectional with cup holders" loading="lazy" width="600" height="800">
+        <img src="images/sectional-brown-recliner.jpg" alt="Brown leather reclining sectional with cup holders" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/sofa-set-black.jpg" alt="Black sofa set with nailhead trim and glass coffee table" loading="lazy" width="600" height="800">
+        <img src="images/sofa-set-black.jpg" alt="Black sofa set with nailhead trim and glass coffee table" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/sofa-blue-bohemian.jpg" alt="Blue sofa with colorful geometric pillows and bohemian rug" loading="lazy" width="600" height="800">
+        <img src="images/sofa-blue-bohemian.jpg" alt="Blue sofa with colorful geometric pillows and bohemian rug" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/sectional-charcoal-chaise.jpg" alt="Dark charcoal sectional sofa with chaise lounge" loading="lazy" width="600" height="800">
+        <img src="images/sectional-charcoal-chaise.jpg" alt="Dark charcoal sectional sofa with chaise lounge" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/sectional-gray-leather-recliner.jpg" alt="Gray leather reclining sectional with power recliners" loading="lazy" width="600" height="800">
+        <img src="images/sectional-gray-leather-recliner.jpg" alt="Gray leather reclining sectional with power recliners" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/sofa-blue-teal-chaise.jpg" alt="Teal blue sofa with reversible chaise and rustic coffee table" loading="lazy" width="600" height="800">
+        <img src="images/sofa-blue-teal-chaise.jpg" alt="Teal blue sofa with reversible chaise and rustic coffee table" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/recliner-set-cream.jpg" alt="Cream recliner sofa set with LED coffee table" loading="lazy" width="600" height="800">
+        <img src="images/recliner-set-cream.jpg" alt="Cream recliner sofa set with LED coffee table" loading="lazy" decoding="async" width="600" height="800">
       </div>
       <div class="gallery-item">
-        <img src="images/sectional-beige-nailhead-2.jpg" alt="Beige sectional sofa with ottoman and floral area rug" loading="lazy" width="600" height="800">
+        <img src="images/sectional-beige-nailhead-2.jpg" alt="Beige sectional sofa with ottoman and floral area rug" loading="lazy" decoding="async" width="600" height="800">
       </div>
     </div>
   </section>
@@ -1083,7 +1243,7 @@
   <section class="section-full experience" aria-label="The showroom experience">
     <div class="exp-grid">
       <div class="exp-image reveal">
-        <img src="images/experience-showroom.jpg" alt="Metropolitan Furniture Houston showroom with modern gray leather sofas on display" loading="lazy" width="900" height="1125">
+        <img src="images/experience-showroom.jpg" alt="Metropolitan Furniture Houston showroom with modern gray leather sofas on display" loading="lazy" decoding="async" width="900" height="1125">
       </div>
       <div class="exp-content reveal">
         <span class="section-label">The Experience</span>
@@ -1158,6 +1318,11 @@
     </div>
   </section>
 
+  <!-- PAYMENT STRIP -->
+  <div class="payment-strip" role="contentinfo" aria-label="Accepted payment methods">
+    <strong>We Accept:</strong> Cash &middot; Credit/Debit &middot; Zelle &middot; Venmo &middot; CashApp &middot; Bank Transfer &middot; Financing
+  </div>
+
   <!-- VISIT / FORM -->
   <section class="section-full visit-section" id="visit" aria-label="Visit our showroom and schedule your visit">
     <div class="visit-grid">
@@ -1179,6 +1344,10 @@
             <div>
               <div class="visit-label">Hours</div>
               <div class="visit-value">Mon – Fri: 10 AM – 6 PM<br>Saturday: 10 AM – 5 PM<br>Sunday: Closed</div>
+              <div class="open-indicator" id="openIndicator">
+                <span class="open-dot" id="openDot"></span>
+                <span id="openText"></span>
+              </div>
             </div>
           </div>
           <div class="visit-detail">
@@ -1197,7 +1366,7 @@
           </div>
         </address>
 
-        <a href="https://www.google.com/maps/dir/?api=1&destination=5708+N+Shepherd+Dr+Ste+B6+Houston+TX+77091" target="_blank" rel="noopener" class="btn-directions" aria-label="Get directions to our showroom on Google Maps">
+        <a href="#" id="visitDirectionsBtn" class="btn-directions" aria-label="Get directions to our showroom">
           Get Directions &rarr;
         </a>
       </div>
@@ -1216,7 +1385,7 @@
               <input type="tel" id="phone" name="phone" placeholder="(832) 000-0000" required autocomplete="tel" inputmode="tel">
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group mobile-hideable" id="emailGroup">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" inputmode="email">
           </div>
@@ -1234,11 +1403,14 @@
               <option value="Other">Other</option>
             </select>
           </div>
-          <div class="form-group">
+          <button type="button" class="mobile-expand-toggle" id="mobileExpandToggle" aria-expanded="false">
+            &#9660; Tell us more (optional)
+          </button>
+          <div class="form-group mobile-hideable" id="messageGroup">
             <label for="message">Tell Us More (optional)</label>
             <textarea id="message" name="message" placeholder="Style preference, budget, rooms to furnish..." rows="3"></textarea>
           </div>
-          <div class="form-group">
+          <div class="form-group mobile-hideable" id="financingGroup">
             <label for="financing">Interested in Financing?</label>
             <select id="financing" name="financing">
               <option value="Yes">Yes — tell me my options</option>
@@ -1246,13 +1418,15 @@
               <option value="No">No, paying in full</option>
             </select>
           </div>
-          <button type="submit" class="form-submit" id="submitBtn">Schedule My Visit</button>
+          <button type="submit" class="form-submit" id="submitBtn">Reserve My Spot — We'll Call to Confirm</button>
           <p class="form-privacy">We'll reach out to confirm. No spam, ever.</p>
         </form>
         <div class="form-success" id="formSuccess" role="alert">
           <h3>We'll See You Soon</h3>
           <p>Our team will call you shortly to confirm your visit and prepare personalized options based on what you're looking for.</p>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=5708+N+Shepherd+Dr+Ste+B6+Houston+TX+77091" target="_blank" rel="noopener" class="btn-gold" style="margin-top: 32px">Get Directions to Our Showroom</a>
+          <a href="#" id="successDirectionsBtn" class="btn-gold" style="margin-top: 32px">Get Directions to Our Showroom</a>
+          <p style="margin-top: 20px; font-size: 14px; color: var(--text-light);">Or text us right now:</p>
+          <a href="sms:+18322795425" class="btn-sms">&#128172; Text (832) 279-5425</a>
         </div>
       </div>
     </div>
@@ -1265,49 +1439,126 @@
     <p class="footer-langs">English &middot; Espa&ntilde;ol</p>
   </footer>
 
-  <!-- FLOATING CTA (MOBILE) -->
+  <!-- FLOATING CTA (MOBILE) — 3 buttons -->
   <div class="float-cta" id="floatCta" aria-label="Quick actions">
     <div class="float-cta-inner">
-      <a href="#visit" class="float-primary">Visit Showroom</a>
-      <a href="tel:+18322795425" class="float-secondary">Call Now</a>
+      <a href="#" id="floatDirectionsBtn" class="float-secondary">
+        <span class="float-icon">&#128205;</span>
+        Directions
+      </a>
+      <a href="tel:+18322795425" class="float-secondary">
+        <span class="float-icon">&#128222;</span>
+        Call
+      </a>
+      <a href="sms:+18322795425" class="float-primary">
+        <span class="float-icon">&#128172;</span>
+        Text Us
+      </a>
     </div>
   </div>
 
   <script>
+    // ── Detect iOS for Apple Maps vs Google Maps ──
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var mapsUrl = isIOS
+      ? 'https://maps.apple.com/?daddr=5708+N+Shepherd+Dr+Ste+B6+Houston+TX+77091'
+      : 'https://www.google.com/maps/dir/?api=1&destination=5708+N+Shepherd+Dr+Ste+B6+Houston+TX+77091';
+
+    // Apply maps URL to all direction buttons
+    document.getElementById('heroDirectionsBtn').href = mapsUrl;
+    document.getElementById('visitDirectionsBtn').href = mapsUrl;
+    document.getElementById('visitDirectionsBtn').target = '_blank';
+    document.getElementById('visitDirectionsBtn').rel = 'noopener';
+    document.getElementById('successDirectionsBtn').href = mapsUrl;
+    document.getElementById('successDirectionsBtn').target = '_blank';
+    document.getElementById('successDirectionsBtn').rel = 'noopener';
+    document.getElementById('floatDirectionsBtn').href = mapsUrl;
+
     // ── Nav scroll effect ──
-    const nav = document.getElementById('nav');
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
       nav.classList.toggle('scrolled', window.scrollY > 80);
     }, { passive: true });
 
     // ── Reveal on scroll ──
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
 
     // ── Hide float CTA when form visible ──
-    const floatCta = document.getElementById('floatCta');
-    const visitSection = document.getElementById('visit');
-    const floatObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    var floatCta = document.getElementById('floatCta');
+    var visitSection = document.getElementById('visit');
+    var floatObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         if (floatCta) floatCta.classList.toggle('hidden', entry.isIntersecting);
       });
     }, { threshold: 0.15 });
     floatObserver.observe(visitSection);
 
+    // ── Open Now indicator ──
+    function updateOpenStatus() {
+      var now = new Date();
+      // Convert to CST (UTC-6) — Houston does observe CDT (UTC-5) in summer
+      var utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      // Determine if CDT or CST: CDT from 2nd Sunday Mar to 1st Sunday Nov
+      var year = now.getFullYear();
+      var marStart = new Date(year, 2, 1);
+      var marDay = marStart.getDay();
+      var dstStart = new Date(year, 2, (14 - marDay) % 7 + 8, 2, 0, 0); // 2nd Sunday March at 2am
+      var novStart = new Date(year, 10, 1);
+      var novDay = novStart.getDay();
+      var dstEnd = new Date(year, 10, (7 - novDay) % 7 + 1, 2, 0, 0); // 1st Sunday November at 2am
+      var offset = (now >= dstStart && now < dstEnd) ? -5 : -6; // CDT=-5, CST=-6
+      var houston = new Date(utc + (offset * 3600000));
+      var day = houston.getDay(); // 0=Sun, 1=Mon...6=Sat
+      var hour = houston.getHours();
+      var min = houston.getMinutes();
+      var timeDecimal = hour + min / 60;
+
+      var isOpen = false;
+      if (day >= 1 && day <= 5 && timeDecimal >= 10 && timeDecimal < 18) isOpen = true; // Mon-Fri 10-18
+      if (day === 6 && timeDecimal >= 10 && timeDecimal < 17) isOpen = true; // Sat 10-17
+
+      var indicator = document.getElementById('openIndicator');
+      var dot = document.getElementById('openDot');
+      var text = document.getElementById('openText');
+      if (isOpen) {
+        indicator.className = 'open-indicator is-open';
+        dot.className = 'open-dot is-open';
+        text.textContent = 'Open Now';
+      } else {
+        indicator.className = 'open-indicator is-closed';
+        dot.className = 'open-dot is-closed';
+        text.textContent = 'Closed';
+      }
+    }
+    updateOpenStatus();
+    setInterval(updateOpenStatus, 60000); // Update every minute
+
+    // ── Mobile form expand toggle ──
+    var expandToggle = document.getElementById('mobileExpandToggle');
+    var hideable = document.querySelectorAll('.mobile-hideable');
+    expandToggle.addEventListener('click', function() {
+      var expanded = expandToggle.getAttribute('aria-expanded') === 'true';
+      expandToggle.setAttribute('aria-expanded', !expanded);
+      expandToggle.innerHTML = expanded ? '&#9660; Tell us more (optional)' : '&#9650; Show less';
+      hideable.forEach(function(el) {
+        el.classList.toggle('expanded', !expanded);
+      });
+    });
+
     // ── Phone formatting ──
     document.getElementById('phone').addEventListener('input', function(e) {
-      let v = e.target.value.replace(/\D/g, '');
+      var v = e.target.value.replace(/\D/g, '');
       if (v.length > 10) v = v.slice(0, 10);
-      if (v.length >= 6) v = `(${v.slice(0,3)}) ${v.slice(3,6)}-${v.slice(6,10)}`;
-      else if (v.length >= 3) v = `(${v.slice(0,3)}) ${v.slice(3)}`;
+      if (v.length >= 6) v = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6,10);
+      else if (v.length >= 3) v = '(' + v.slice(0,3) + ') ' + v.slice(3);
       e.target.value = v;
     });
 
@@ -1315,28 +1566,31 @@
     document.getElementById('leadForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const name = document.getElementById('name');
-      const phone = document.getElementById('phone');
-      const interest = document.getElementById('interest');
+      var name = document.getElementById('name');
+      var phone = document.getElementById('phone');
+      var interest = document.getElementById('interest');
 
       // Basic validation
-      const phoneDigits = phone.value.replace(/\D/g, '');
+      var phoneDigits = phone.value.replace(/\D/g, '');
       if (!name.value.trim()) { name.focus(); return; }
       if (phoneDigits.length < 10) { phone.focus(); return; }
       if (!interest.value) { interest.focus(); return; }
 
-      const btn = document.getElementById('submitBtn');
+      var btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
-      const params = new URLSearchParams(window.location.search);
-      const formData = {
+      var params = new URLSearchParams(window.location.search);
+      var emailEl = document.getElementById('email');
+      var messageEl = document.getElementById('message');
+      var financingEl = document.getElementById('financing');
+      var formData = {
         name: name.value.trim(),
         phone: phone.value,
-        email: document.getElementById('email').value || null,
+        email: (emailEl && emailEl.value) || null,
         interest: interest.value,
-        message: document.getElementById('message').value || null,
-        financing: document.getElementById('financing').value,
+        message: (messageEl && messageEl.value) || null,
+        financing: (financingEl && financingEl.value) || null,
         source: 'landing_page',
         utm_source: params.get('utm_source'),
         utm_medium: params.get('utm_medium'),
@@ -1345,7 +1599,7 @@
       };
 
       try {
-        const res = await fetch('https://acceleration-supabase.cloudfy.live/rest/v1/leads', {
+        var res = await fetch('https://acceleration-supabase.cloudfy.live/rest/v1/leads', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
