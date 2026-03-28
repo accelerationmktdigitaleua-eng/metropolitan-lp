@@ -35,7 +35,6 @@
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://acceleration-supabase.cloudfy.live">
 
   <!-- Fonts with display=swap for performance -->
@@ -227,7 +226,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1920&q=80') center/cover no-repeat;
+      background: url('images/hero-showroom.jpg') center/cover no-repeat;
     }
     .hero-bg::after {
       content: '';
@@ -426,6 +425,26 @@
       font-size: 13px;
       letter-spacing: 1px;
     }
+
+    /* ── GALLERY ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      border-radius: 4px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
 
     /* ── EXPERIENCE SECTION ── */
     .experience { background: var(--cream); }
@@ -874,6 +893,9 @@
       .collection-overlay { padding: 24px; }
       .collection-overlay h3 { font-size: 24px; }
 
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .gallery-item { aspect-ratio: 4/3; }
+
       .exp-grid { grid-template-columns: 1fr; gap: 32px; }
       .exp-image { aspect-ratio: 4/3; }
       .exp-content { max-width: 100%; }
@@ -993,21 +1015,21 @@
     </div>
     <div class="collections reveal">
       <a class="collection-card" href="#visit" aria-label="Browse living room furniture">
-        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80" alt="Modern living room with elegant sofa and coffee table" loading="lazy" width="800" height="1067">
+        <img src="images/collection-living-room.jpg" alt="Sectional sofa with blue and white decorative pillows at Metropolitan Furniture Houston" loading="lazy" width="800" height="1067">
         <div class="collection-overlay">
           <h3>Living Room</h3>
           <p>Sofas, Sectionals &amp; More</p>
         </div>
       </a>
       <a class="collection-card" href="#visit" aria-label="Browse bedroom furniture">
-        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80" alt="Stylish bedroom with upholstered bed and modern decor" loading="lazy" width="800" height="1067">
+        <img src="images/collection-bedroom.jpg" alt="Dark wood bedroom set with bed dresser and nightstand at Metropolitan Furniture Houston" loading="lazy" width="800" height="1067">
         <div class="collection-overlay">
           <h3>Bedroom</h3>
           <p>Beds, Dressers &amp; Mattresses</p>
         </div>
       </a>
       <a class="collection-card" href="#visit" aria-label="Browse dining room furniture">
-        <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80" alt="Elegant dining room with wooden table and chairs" loading="lazy" width="800" height="1067">
+        <img src="images/collection-dining.jpg" alt="Gray sofa and loveseat set with green accent chair and coffee table at Metropolitan Furniture Houston" loading="lazy" width="800" height="1067">
         <div class="collection-overlay">
           <h3>Dining Room</h3>
           <p>Tables, Chairs &amp; Sets</p>
@@ -1016,11 +1038,52 @@
     </div>
   </section>
 
+  <!-- GALLERY -->
+  <section class="section" id="gallery" aria-label="Product gallery">
+    <div class="section-header reveal">
+      <span class="section-label">Our Showroom</span>
+      <h2 class="section-title">Real Furniture, Real Showroom</h2>
+      <p class="section-desc">Browse our curated selection — every piece available for immediate pickup or same-day delivery in Houston.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="images/sectional-beige-nailhead.jpg" alt="Beige sectional sofa with nailhead trim and decorative pillows" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/sofa-white-leather.jpg" alt="White leather modern sofa set with glass coffee table" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/sectional-brown-recliner.jpg" alt="Brown leather reclining sectional with cup holders" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/sofa-set-black.jpg" alt="Black sofa set with nailhead trim and glass coffee table" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/sofa-blue-bohemian.jpg" alt="Blue sofa with colorful geometric pillows and bohemian rug" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/sectional-charcoal-chaise.jpg" alt="Dark charcoal sectional sofa with chaise lounge" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/sectional-gray-leather-recliner.jpg" alt="Gray leather reclining sectional with power recliners" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/sofa-blue-teal-chaise.jpg" alt="Teal blue sofa with reversible chaise and rustic coffee table" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/recliner-set-cream.jpg" alt="Cream recliner sofa set with LED coffee table" loading="lazy" width="600" height="800">
+      </div>
+      <div class="gallery-item">
+        <img src="images/sectional-beige-nailhead-2.jpg" alt="Beige sectional sofa with ottoman and floral area rug" loading="lazy" width="600" height="800">
+      </div>
+    </div>
+  </section>
+
   <!-- EXPERIENCE SECTION -->
   <section class="section-full experience" aria-label="The showroom experience">
     <div class="exp-grid">
       <div class="exp-image reveal">
-        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80" alt="Beautiful furniture showroom interior with curated displays" loading="lazy" width="900" height="1125">
+        <img src="images/experience-showroom.jpg" alt="Metropolitan Furniture Houston showroom with modern gray leather sofas on display" loading="lazy" width="900" height="1125">
       </div>
       <div class="exp-content reveal">
         <span class="section-label">The Experience</span>
