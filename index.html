@@ -311,6 +311,13 @@
       -webkit-tap-highlight-color: transparent;
     }
     .btn-text-link:hover { color: var(--gold-light); border-color: var(--gold-light); background: rgba(255,255,255,0.18); }
+    .hero-spanish {
+      margin-top: 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
     .btn-gold {
       background: var(--gold);
       color: var(--charcoal);
@@ -610,6 +617,36 @@
       flex-shrink: 0;
     }
 
+    /* ── WHY SECTION ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .why-card {
+      text-align: center;
+      padding: 40px 28px;
+    }
+    .why-icon {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .why-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .why-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
     /* ── REVIEWS ── */
     .reviews-section {
       padding: 120px 48px;
@@ -688,6 +725,27 @@
       color: var(--text-light);
       font-weight: 400;
       margin-top: 2px;
+    }
+
+    /* ── GUARANTEE BANNER ── */
+    .guarantee-banner {
+      background: var(--cream);
+      border-top: 3px solid var(--gold);
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .guarantee-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .guarantee-content p {
+      font-size: 14px;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
     }
 
     /* ── FINANCING BANNER ── */
@@ -1103,6 +1161,12 @@
       .gallery-item.gallery-show-all { display: block; }
       .gallery-more { display: block; }
 
+      .why-grid { grid-template-columns: 1fr; gap: 8px; }
+      .why-card { padding: 28px 20px; text-align: left; display: flex; gap: 16px; align-items: flex-start; }
+      .why-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
+      .why-card h3 { font-size: 18px; }
+      .why-card p { font-size: 13px; }
+
       .exp-grid { grid-template-columns: 1fr; gap: 32px; }
       .exp-image { aspect-ratio: 4/3; }
       .exp-content { max-width: 100%; }
@@ -1211,7 +1275,7 @@
     <div class="hero-content">
       <p class="hero-eyebrow">FURNITURE STORE IN HOUSTON TX</p>
       <h1>Moving? Renovating? <em>Upgrade Your Home Today.</em></h1>
-      <p class="hero-sub">Walk into our showroom and walk out with premium furniture — same-day delivery, financing with no credit check, and prices that actually make sense.</p>
+      <p class="hero-sub">Walk into our family showroom and walk out with premium furniture — same-day delivery, financing with no credit check, and the personal attention the big stores forgot about.</p>
       <div class="hero-ctas">
         <a href="#" id="heroDirectionsBtn" class="btn-gold">Get Directions</a>
         <a href="tel:+18322795425" class="btn-outline">Call (832) 279-5425</a>
@@ -1219,6 +1283,7 @@
       <div class="hero-text-row">
         <a href="sms:+18322795425" class="btn-text-link">&#128172; Text Us</a>
       </div>
+      <p class="hero-spanish">Tambi&eacute;n hablamos espa&ntilde;ol — &iexcl;Bienvenidos!</p>
     </div>
     <a href="#collections" class="hero-scroll" aria-label="Scroll to explore">Explore</a>
   </section>
@@ -1231,6 +1296,7 @@
     <div class="trust-item" role="listitem"><strong>Hablamos</strong>&nbsp; Espa&ntilde;ol</div>
     <div class="trust-item" role="listitem"><strong>Free Delivery</strong>&nbsp; on $3K+</div>
     <div class="trust-item" role="listitem"><strong>Ships</strong>&nbsp; Nationwide</div>
+    <div class="trust-item" role="listitem"><strong>100%</strong>&nbsp; Satisfaction Guaranteed</div>
   </div>
 
   <!-- COLLECTIONS -->
@@ -1334,8 +1400,8 @@
       </div>
       <div class="exp-content reveal">
         <span class="section-label">The Experience</span>
-        <h2>Come See. Touch. <em>Feel the Quality.</em></h2>
-        <p>Photos can't capture the feeling of sinking into a perfectly crafted sofa, or running your hand across a solid wood dining table. That's why we invite you to visit our Houston showroom — where you can experience every piece in person.</p>
+        <h2>Not Just a Store. <em>Your Neighbor.</em></h2>
+        <p>At the big chains, you're a transaction. At Metropolitan, you're family. Karen and her team take the time to understand your style, your space, and your budget — then help you find pieces you'll love for years. No pressure, no commission, no gimmicks.</p>
         <ul class="exp-features">
           <li>Premium quality at honest, transparent prices</li>
           <li>Same-day delivery across Houston</li>
@@ -1346,6 +1412,47 @@
           <li>Delivery up to 100 miles &amp; nationwide shipping</li>
         </ul>
         <a href="#visit" class="btn-gold">Schedule Your Visit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY METROPOLITAN -->
+  <section class="section why-section" id="why" aria-label="Why choose Metropolitan">
+    <div class="section-header reveal">
+      <span class="section-label">Why Metropolitan</span>
+      <h2 class="section-title">Big Store Selection. <em>Small Store Service.</em></h2>
+      <p class="section-desc">Tired of feeling like just another number? At Metropolitan, you'll always be treated like family.</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-icon">&#128105;&#8205;&#128188;</div>
+        <h3>Owner On-Site, Every Day</h3>
+        <p>Karen personally helps every customer find the perfect piece. No commissioned salespeople, no pressure — just honest advice from someone who loves furniture.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#129309;</div>
+        <h3>We Answer the Phone. Always.</h3>
+        <p>Have a question after your purchase? We pick up. Need to change your delivery? Just call. You'll never be ignored or transferred to a voicemail that nobody checks.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128666;</div>
+        <h3>Delivery Done Right</h3>
+        <p>Your furniture arrives on time, in perfect condition, placed exactly where you want it. If anything isn't right, we make it right — same day, no excuses.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#9989;</div>
+        <h3>Satisfaction Guaranteed</h3>
+        <p>We stand behind every piece we sell. If you're not completely happy, we'll work with you until you are. That's not a policy — it's a promise.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128176;</div>
+        <h3>Honest Prices, No Surprises</h3>
+        <p>The price you see is the price you pay. No hidden fees, no bait-and-switch, no "that item was discontinued." What's on our floor is ready to go home with you today.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128483;&#65039;</div>
+        <h3>Bilingual Team — English &amp; Espa&ntilde;ol</h3>
+        <p>Si&eacute;ntase como en casa. Our entire team speaks Spanish and English fluently, so you can shop comfortably in the language you prefer.</p>
       </div>
     </div>
   </section>
@@ -1389,6 +1496,14 @@
       </div>
     </div>
   </section>
+
+  <!-- GUARANTEE BANNER -->
+  <div class="guarantee-banner">
+    <div class="guarantee-content reveal">
+      <h3>Our Promise to You</h3>
+      <p>Every piece inspected before delivery &middot; On-time delivery or we make it right &middot; Post-purchase support that actually answers &middot; Bilingual team ready to help</p>
+    </div>
+  </div>
 
   <!-- FINANCING -->
   <section class="financing-banner" aria-label="Financing options">
@@ -1510,8 +1625,8 @@
           <p class="form-privacy">We'll reach out to confirm. No spam, ever.</p>
         </form>
         <div class="form-success" id="formSuccess" role="alert">
-          <h3>We'll See You Soon</h3>
-          <p>Our team will call you shortly to confirm your visit and prepare personalized options based on what you're looking for.</p>
+          <h3>Karen Will Call You Personally</h3>
+          <p>That's right — Karen herself will reach out to confirm your visit and prepare personalized options based on what you're looking for. That's the Metropolitan difference.</p>
           <a href="#" id="successDirectionsBtn" class="btn-gold" style="margin-top: 32px">Get Directions to Our Showroom</a>
           <p style="margin-top: 20px; font-size: 14px; color: var(--text-light);">Or text us right now:</p>
           <a href="sms:+18322795425" class="btn-sms">&#128172; Text (832) 279-5425</a>
