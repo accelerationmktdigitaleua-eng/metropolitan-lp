@@ -1220,7 +1220,12 @@
       .mobile-expand-toggle { display: block; }
 
       .float-cta { display: block; }
-      body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+      body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+
+      /* Bigger touch targets on mobile */
+      .float-cta a { min-height: 52px; font-size: 11px; }
+      .hero-ctas a { min-height: 52px; display: flex; align-items: center; justify-content: center; }
+      .btn-text-link { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
 
       .footer { padding: 32px 20px 48px; }
     }
@@ -1255,9 +1260,161 @@
       .open-dot.is-open { animation: none; }
     }
 
+    /* ── EXIT POPUP ── */
+    .exit-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeInOverlay 0.3s ease;
+    }
+    .exit-overlay.active { display: flex; }
+    @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+    .exit-popup {
+      background: var(--white);
+      max-width: 440px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      padding: 48px 36px;
+      animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    .exit-popup-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: var(--text-light);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .exit-popup-close:hover { color: var(--charcoal); }
+    .exit-popup-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      margin-bottom: 20px;
+    }
+    .exit-popup h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+    .exit-popup .exit-discount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin: 8px 0;
+    }
+    .exit-popup .exit-desc {
+      font-size: 15px;
+      color: var(--text-light);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .exit-popup .exit-code {
+      display: inline-block;
+      background: var(--cream);
+      border: 2px dashed var(--gold);
+      padding: 12px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--charcoal);
+      margin: 16px 0;
+      user-select: all;
+      cursor: pointer;
+    }
+    .exit-popup .exit-code-hint {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+    .exit-popup .exit-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+    .exit-popup .exit-sms-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 16px 24px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .exit-popup .exit-sms-btn:hover { background: var(--gold); color: var(--charcoal); }
+    .exit-popup .exit-visit-btn {
+      width: 100%;
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 16px 24px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      transition: all 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .exit-popup .exit-visit-btn:hover { background: var(--gold-light); }
+    .exit-popup .exit-skip {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      font-size: 13px;
+      cursor: pointer;
+      margin-top: 8px;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .exit-popup .exit-skip:hover { color: var(--charcoal); }
+
+    @media (max-width: 900px) {
+      .exit-popup { padding: 36px 24px; margin: 0 12px; }
+      .exit-popup h3 { font-size: 28px; }
+      .exit-popup .exit-discount { font-size: 52px; }
+      .exit-popup .exit-code { font-size: 18px; padding: 10px 24px; }
+    }
+
     /* Print */
     @media print {
-      .nav, .float-cta, .hero-scroll, .promo-banner { display: none; }
+      .nav, .float-cta, .hero-scroll, .promo-banner, .exit-overlay { display: none; }
       .hero { height: auto; min-height: auto; padding: 40px; }
       .section, .section-full { padding: 20px; }
       body { padding-bottom: 0; }
@@ -1300,7 +1457,7 @@
         <a href="tel:+18328125400" class="btn-outline">Call (832) 812-5400</a>
       </div>
       <div class="hero-text-row">
-        <a href="sms:+18328125400" class="btn-text-link">Text Us</a>
+        <a href="sms:+18328125400?body=Hi!%20I%27m%20interested%20in%20furniture%20from%20Metropolitan.%20Can%20you%20help%3F" class="btn-text-link">Text Us</a>
       </div>
       <p class="hero-spanish">Tambi&eacute;n hablamos espa&ntilde;ol — &iexcl;Bienvenidos!</p>
     </div>
@@ -1407,7 +1564,7 @@
     <p>Like what you see? <strong>Come see it in person.</strong></p>
     <div class="inline-cta-buttons">
       <a href="#visit" class="btn-gold">Visit Our Showroom</a>
-      <a href="sms:+18328125400" class="btn-inline-text">Or text us &rarr;</a>
+      <a href="sms:+18328125400?body=Hi!%20I%27m%20interested%20in%20furniture%20from%20Metropolitan.%20Can%20you%20help%3F" class="btn-inline-text">Or text us &rarr;</a>
     </div>
   </div>
 
@@ -1660,7 +1817,7 @@
           <p>That's right — Karen herself will reach out to confirm your visit and prepare personalized options based on what you're looking for. That's the Metropolitan difference.</p>
           <a href="#" id="successDirectionsBtn" class="btn-gold" style="margin-top: 32px">Get Directions to Our Showroom</a>
           <p style="margin-top: 20px; font-size: 14px; color: var(--text-light);">Or text us right now:</p>
-          <a href="sms:+18328125400" class="btn-sms">Text (832) 812-5400</a>
+          <a href="sms:+18328125400?body=Hi!%20I%27m%20interested%20in%20furniture%20from%20Metropolitan.%20Can%20you%20help%3F" class="btn-sms">Text (832) 812-5400</a>
         </div>
       </div>
     </div>
@@ -1676,14 +1833,14 @@
   <!-- FLOATING CTA (MOBILE) — 3 buttons -->
   <div class="float-cta" id="floatCta" aria-label="Quick actions">
     <div class="float-cta-inner">
-      <a href="#" id="floatDirectionsBtn" class="float-secondary">
-        Directions
+      <a href="sms:+18328125400?body=Hi!%20I%27m%20interested%20in%20furniture%20from%20Metropolitan.%20Can%20you%20help%3F" class="float-primary" style="flex:2;">
+        <span class="float-icon">💬</span> Text Us
       </a>
       <a href="tel:+18328125400" class="float-secondary">
-        Call
+        <span class="float-icon">📞</span> Call
       </a>
-      <a href="sms:+18328125400" class="float-primary">
-        Text Us
+      <a href="#" id="floatDirectionsBtn" class="float-secondary">
+        <span class="float-icon">📍</span> Map
       </a>
     </div>
   </div>
@@ -1878,8 +2035,95 @@
       // Track conversion
       if (typeof fbq !== 'undefined') fbq('track', 'Lead');
       if (typeof gtag !== 'undefined') gtag('event', 'conversion', { send_to: 'AW-XXXXX/XXXXX' });
+
+      // Suppress exit popup after form submit
+      window._formSubmitted = true;
     });
+
+    // ── Exit Intent Popup ──
+    (function() {
+      var shown = false;
+      var POPUP_KEY = 'metro_exit_shown';
+      var overlay = document.getElementById('exitOverlay');
+
+      // Don't show if already shown this session or form was submitted
+      function shouldShow() {
+        return !shown && !window._formSubmitted && !sessionStorage.getItem(POPUP_KEY);
+      }
+
+      function showPopup() {
+        if (!shouldShow()) return;
+        shown = true;
+        sessionStorage.setItem(POPUP_KEY, '1');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function hidePopup() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // Desktop: mouse leaves viewport (exit intent)
+      document.addEventListener('mouseout', function(e) {
+        if (e.clientY <= 0 && e.relatedTarget === null) showPopup();
+      });
+
+      // Mobile: show after 45 seconds of engagement
+      if (window.innerWidth < 900) {
+        setTimeout(function() { showPopup(); }, 45000);
+      }
+
+      // Also show on back button attempt (history)
+      window.addEventListener('popstate', function() {
+        if (shouldShow()) {
+          history.pushState(null, '', location.href);
+          showPopup();
+        }
+      });
+      // Push initial state so popstate can fire
+      if (shouldShow()) history.pushState(null, '', location.href);
+
+      // Close handlers
+      document.getElementById('exitPopupClose').addEventListener('click', hidePopup);
+      document.getElementById('exitSkipBtn').addEventListener('click', hidePopup);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) hidePopup();
+      });
+
+      // Copy code on click
+      var codeEl = document.getElementById('exitCouponCode');
+      codeEl.addEventListener('click', function() {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText('METRO10').then(function() {
+            codeEl.textContent = 'COPIED!';
+            setTimeout(function() { codeEl.textContent = 'METRO10'; }, 2000);
+          });
+        }
+      });
+    })();
   </script>
+
+  <!-- EXIT INTENT POPUP -->
+  <div class="exit-overlay" id="exitOverlay" role="dialog" aria-modal="true" aria-label="Special offer before you go">
+    <div class="exit-popup">
+      <button class="exit-popup-close" id="exitPopupClose" aria-label="Close">&times;</button>
+      <div class="exit-popup-badge">Before You Go</div>
+      <h3>Wait — Here's a Gift</h3>
+      <div class="exit-discount">10% OFF</div>
+      <p class="exit-desc">Mention this code when you visit our showroom or text it to us. Valid on any purchase!</p>
+      <div class="exit-code" id="exitCouponCode" title="Click to copy">METRO10</div>
+      <p class="exit-code-hint">Tap to copy &middot; Show at checkout</p>
+      <div class="exit-cta-group">
+        <a href="sms:+18328125400?body=Hi!%20I%27d%20like%20to%20use%20my%20METRO10%20coupon%20(10%25%20off).%20What%20do%20you%20have%20available%3F" class="exit-sms-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Text Us to Claim
+        </a>
+        <a href="#visit" class="exit-visit-btn" onclick="document.getElementById('exitOverlay').classList.remove('active');document.body.style.overflow='';">Schedule a Visit Instead</a>
+        <button class="exit-skip" id="exitSkipBtn">No thanks, I'll keep browsing</button>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
