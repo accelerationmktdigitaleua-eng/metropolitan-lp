@@ -295,36 +295,21 @@
       color: var(--gold-light);
     }
     .hero-sub {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 300;
-      color: rgba(255,255,255,0.9);
-      max-width: 580px;
+      color: rgba(255,255,255,0.85);
+      max-width: 480px;
       margin: 0 auto 40px;
-      line-height: 1.7;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
     }
     .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .hero-text-row { margin-top: 16px; display: flex; justify-content: center; }
-    .btn-text-link {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 1px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 10px 24px;
-      border-radius: 24px;
-      transition: all 0.3s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .btn-text-link:hover { color: var(--gold-light); border-color: var(--gold-light); background: rgba(255,255,255,0.18); }
     .hero-spanish {
       margin-top: 20px;
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
       font-style: italic;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
     .btn-gold {
       background: var(--gold);
@@ -1153,12 +1138,14 @@
       .nav-cta { padding: 10px 20px; font-size: 10px; letter-spacing: 1.5px; }
 
       .hero { min-height: 100svh; }
-      .hero h1 { font-size: clamp(32px, 9vw, 48px); margin-bottom: 16px; }
+      .hero h1 { font-size: clamp(36px, 11vw, 52px); margin-bottom: 12px; }
       .hero-eyebrow { font-size: 10px; letter-spacing: 3px; margin-bottom: 16px; }
-      .hero-sub { font-size: 15px; margin-bottom: 32px; }
+      .hero-sub { font-size: 15px; margin-bottom: 28px; max-width: 320px; }
       .hero-ctas { flex-direction: column; align-items: center; gap: 12px; }
-      .btn-gold, .btn-outline { width: 100%; max-width: 300px; text-align: center; padding: 16px 32px; }
+      .hero-desktop-only { display: none; }
+      .btn-gold, .btn-outline { width: 100%; max-width: 280px; text-align: center; padding: 16px 32px; }
       .hero-scroll { display: none; }
+      .hero-spanish { font-size: 13px; margin-top: 16px; }
 
       .trust-strip { gap: 16px; padding: 16px 20px; overflow-x: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; scrollbar-width: none; flex-wrap: nowrap; }
       .trust-strip::-webkit-scrollbar { display: none; }
@@ -1449,17 +1436,14 @@
   <section class="hero" aria-label="Welcome to Metropolitan Market and Decor">
     <div class="hero-bg" role="img" aria-label="Elegant living room furniture display"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">FURNITURE STORE IN HOUSTON TX</p>
-      <h1>Moving? Renovating? <em>Upgrade Your Home Today.</em></h1>
-      <p class="hero-sub">Walk into our family showroom and walk out with premium furniture — same-day delivery, financing with no credit check, and the personal attention the big stores forgot about.</p>
+      <p class="hero-eyebrow">HOUSTON'S PREMIUM FURNITURE SHOWROOM</p>
+      <h1><em>Elevate</em> Your Home</h1>
+      <p class="hero-sub">Premium furniture. Same-day delivery. Financing available.</p>
       <div class="hero-ctas">
-        <a href="#" id="heroDirectionsBtn" class="btn-gold">Get Directions</a>
-        <a href="tel:+18328125400" class="btn-outline">Call (832) 812-5400</a>
+        <a href="#visit" class="btn-gold">Visit Our Showroom</a>
+        <a href="#" id="heroDirectionsBtn" class="btn-outline hero-desktop-only">Get Directions</a>
       </div>
-      <div class="hero-text-row">
-        <a href="sms:+18328125400?body=Hi!%20I%27m%20interested%20in%20furniture%20from%20Metropolitan.%20Can%20you%20help%3F" class="btn-text-link">Text Us</a>
-      </div>
-      <p class="hero-spanish">Tambi&eacute;n hablamos espa&ntilde;ol — &iexcl;Bienvenidos!</p>
+      <p class="hero-spanish">Hablamos espa&ntilde;ol</p>
     </div>
     <a href="#collections" class="hero-scroll" aria-label="Scroll to explore">Explore</a>
   </section>
