@@ -259,7 +259,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('images/hero-showroom.jpg') center/cover no-repeat;
+      background: url('images/hero-showroom.webp') center/cover no-repeat;
     }
     .hero-bg::after {
       content: '';
@@ -1120,6 +1120,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .hero-bg { background-image: url('images/mobile-hero-showroom.webp'); }
       .promo-banner {
         position: fixed;
         top: 0;
@@ -1485,28 +1486,44 @@
     <p class="urgency-note reveal">Everything you see is in stock and available for same-day pickup or delivery.</p>
     <div class="collections reveal">
       <a class="collection-card" href="#visit" aria-label="Browse living room furniture">
-        <img src="images/collection-living-room.jpg" alt="Sectional sofa with blue and white decorative pillows at Metropolitan Market and Decor Houston" loading="lazy" decoding="async" width="800" height="1067">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-collection-living-room.webp" type="image/webp">
+          <source srcset="images/collection-living-room.webp" type="image/webp">
+          <img src="images/collection-living-room.jpg" alt="Sectional sofa with blue and white decorative pillows at Metropolitan Market and Decor Houston" loading="lazy" decoding="async" width="800" height="1067">
+        </picture>
         <div class="collection-overlay">
           <h3>Living Room</h3>
           <p>Sofas, Sectionals &amp; More</p>
         </div>
       </a>
       <a class="collection-card" href="#visit" aria-label="Browse bedroom furniture">
-        <img src="images/collection-bedroom.jpg" alt="Dark wood bedroom set with bed dresser and nightstand at Metropolitan Market and Decor Houston" loading="lazy" decoding="async" width="800" height="1067">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-collection-bedroom.webp" type="image/webp">
+          <source srcset="images/collection-bedroom.webp" type="image/webp">
+          <img src="images/collection-bedroom.jpg" alt="Dark wood bedroom set with bed dresser and nightstand at Metropolitan Market and Decor Houston" loading="lazy" decoding="async" width="800" height="1067">
+        </picture>
         <div class="collection-overlay">
           <h3>Bedroom</h3>
           <p>Beds, Dressers &amp; Mattresses</p>
         </div>
       </a>
       <a class="collection-card" href="#visit" aria-label="Browse dining room furniture">
-        <img src="images/collection-dining.jpg" alt="Gray sofa and loveseat set with green accent chair and coffee table at Metropolitan Market and Decor Houston" loading="lazy" decoding="async" width="800" height="1067">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-collection-dining.webp" type="image/webp">
+          <source srcset="images/collection-dining.webp" type="image/webp">
+          <img src="images/collection-dining.jpg" alt="Gray sofa and loveseat set with green accent chair and coffee table at Metropolitan Market and Decor Houston" loading="lazy" decoding="async" width="800" height="1067">
+        </picture>
         <div class="collection-overlay">
           <h3>Dining Room</h3>
           <p>Tables, Chairs &amp; Sets</p>
         </div>
       </a>
       <a class="collection-card" href="#visit" aria-label="Browse mattresses and more">
-        <img src="images/recliner-set-cream.jpg" alt="Recliner sofa set and mattresses at Metropolitan Market and Decor Houston" loading="lazy" decoding="async" width="800" height="1067">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-recliner-set-cream.webp" type="image/webp">
+          <source srcset="images/recliner-set-cream.webp" type="image/webp">
+          <img src="images/recliner-set-cream.jpg" alt="Recliner sofa set and mattresses at Metropolitan Market and Decor Houston" loading="lazy" decoding="async" width="800" height="1067">
+        </picture>
         <div class="collection-overlay">
           <h3>Mattresses &amp; More</h3>
           <p>Recliners, Outdoor &amp; Patio</p>
@@ -1524,34 +1541,74 @@
     </div>
     <div class="gallery-grid reveal">
       <div class="gallery-item">
-        <img src="images/sectional-beige-nailhead.jpg" alt="Beige sectional sofa with nailhead trim and decorative pillows" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sectional-beige-nailhead.webp" type="image/webp">
+          <source srcset="images/sectional-beige-nailhead.webp" type="image/webp">
+          <img src="images/sectional-beige-nailhead.jpg" alt="Beige sectional sofa with nailhead trim and decorative pillows" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/sofa-white-leather.jpg" alt="White leather modern sofa set with glass coffee table" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sofa-white-leather.webp" type="image/webp">
+          <source srcset="images/sofa-white-leather.webp" type="image/webp">
+          <img src="images/sofa-white-leather.jpg" alt="White leather modern sofa set with glass coffee table" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/sectional-brown-recliner.jpg" alt="Brown leather reclining sectional with cup holders" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sectional-brown-recliner.webp" type="image/webp">
+          <source srcset="images/sectional-brown-recliner.webp" type="image/webp">
+          <img src="images/sectional-brown-recliner.jpg" alt="Brown leather reclining sectional with cup holders" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/sofa-set-black.jpg" alt="Black sofa set with nailhead trim and glass coffee table" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sofa-set-black.webp" type="image/webp">
+          <source srcset="images/sofa-set-black.webp" type="image/webp">
+          <img src="images/sofa-set-black.jpg" alt="Black sofa set with nailhead trim and glass coffee table" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/sofa-blue-bohemian.jpg" alt="Blue sofa with colorful geometric pillows and bohemian rug" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sofa-blue-bohemian.webp" type="image/webp">
+          <source srcset="images/sofa-blue-bohemian.webp" type="image/webp">
+          <img src="images/sofa-blue-bohemian.jpg" alt="Blue sofa with colorful geometric pillows and bohemian rug" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/sectional-charcoal-chaise.jpg" alt="Dark charcoal sectional sofa with chaise lounge" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sectional-charcoal-chaise.webp" type="image/webp">
+          <source srcset="images/sectional-charcoal-chaise.webp" type="image/webp">
+          <img src="images/sectional-charcoal-chaise.jpg" alt="Dark charcoal sectional sofa with chaise lounge" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/sectional-gray-leather-recliner.jpg" alt="Gray leather reclining sectional with power recliners" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sectional-gray-leather-recliner.webp" type="image/webp">
+          <source srcset="images/sectional-gray-leather-recliner.webp" type="image/webp">
+          <img src="images/sectional-gray-leather-recliner.jpg" alt="Gray leather reclining sectional with power recliners" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/sofa-blue-teal-chaise.jpg" alt="Teal blue sofa with reversible chaise and rustic coffee table" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sofa-blue-teal-chaise.webp" type="image/webp">
+          <source srcset="images/sofa-blue-teal-chaise.webp" type="image/webp">
+          <img src="images/sofa-blue-teal-chaise.jpg" alt="Teal blue sofa with reversible chaise and rustic coffee table" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/recliner-set-cream.jpg" alt="Cream recliner sofa set with LED coffee table" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-recliner-set-cream.webp" type="image/webp">
+          <source srcset="images/recliner-set-cream.webp" type="image/webp">
+          <img src="images/recliner-set-cream.jpg" alt="Cream recliner sofa set with LED coffee table" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
       <div class="gallery-item">
-        <img src="images/sectional-beige-nailhead-2.jpg" alt="Beige sectional sofa with ottoman and floral area rug" loading="lazy" decoding="async" width="600" height="800">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-sectional-beige-nailhead-2.webp" type="image/webp">
+          <source srcset="images/sectional-beige-nailhead-2.webp" type="image/webp">
+          <img src="images/sectional-beige-nailhead-2.jpg" alt="Beige sectional sofa with ottoman and floral area rug" loading="lazy" decoding="async" width="600" height="800">
+        </picture>
       </div>
     </div>
     <div class="gallery-more reveal">
@@ -1572,7 +1629,11 @@
   <section class="section-full experience" aria-label="The showroom experience">
     <div class="exp-grid">
       <div class="exp-image reveal">
-        <img src="images/experience-showroom.jpg" alt="Metropolitan Market and Decor Houston showroom with modern gray leather sofas on display" loading="lazy" decoding="async" width="900" height="1125">
+        <picture>
+          <source media="(max-width: 900px)" srcset="images/mobile-experience-showroom.webp" type="image/webp">
+          <source srcset="images/experience-showroom.webp" type="image/webp">
+          <img src="images/experience-showroom.jpg" alt="Metropolitan Market and Decor Houston showroom with modern gray leather sofas on display" loading="lazy" decoding="async" width="900" height="1125">
+        </picture>
       </div>
       <div class="exp-content reveal">
         <span class="section-label">The Experience</span>
