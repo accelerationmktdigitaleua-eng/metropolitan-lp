@@ -2074,18 +2074,24 @@
       };
 
       try {
-        var res = await fetch('https://acceleration-supabase.cloudfy.live/rest/v1/leads', {
+        // Send to n8n webhook (handles scoring, dedup, CRM insert, WhatsApp alerts)
+        var webhookData = {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          interest: formData.interest,
+          financing: formData.financing,
+          message: formData.message,
+          source: 'landing_page',
+          utm_source: formData.utm_source,
+          utm_medium: formData.utm_medium,
+          utm_campaign: formData.utm_campaign
+        };
+        await fetch('https://acceleration-n8n.cloudfy.live/webhook/metropolitan-lead', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Content-Profile': 'metropolitan',
-            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InN1cGFiYXNlIiwiaWF0IjoxNzcxODcwMzI0LCJleHAiOjE4MDM0MDYzMjR9.Pa6gXtpdGTjtzPjmzVJD9zzP4RYnsWVu7L5-NGf3a_c',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InN1cGFiYXNlIiwiaWF0IjoxNzcxODcwMzI0LCJleHAiOjE4MDM0MDYzMjR9.Pa6gXtpdGTjtzPjmzVJD9zzP4RYnsWVu7L5-NGf3a_c',
-            'Prefer': 'return=minimal'
-          },
-          body: JSON.stringify(formData)
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(webhookData)
         });
-        if (!res.ok) throw new Error('err');
       } catch (err) {
         console.error('Form error:', err);
       }
